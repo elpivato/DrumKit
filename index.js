@@ -2,16 +2,22 @@
 var soundPlay = new Audio("sounds/tom-1.mp3");
 for (var i = 0; i<document.querySelectorAll(".drum").length; i++){
 
-document.querySelectorAll(".drum")[i].addEventListener("click", handleClick);
-};
-
-function handleClick(){
-    
+document.querySelectorAll(".drum")[i].addEventListener("click", function() {
     var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
+});
 
-    console.log(buttonInnerHTML);
+}
 
-    switch (buttonInnerHTML){
+document.addEventListener("keypress", function handleKeypress(event){
+    makeSound (event.key);
+    buttonAnimation(event.key);
+});
+
+function makeSound(key){
+    
+    switch (key){
 
         case "w":
             var snare = new Audio("sounds/snare.mp3");
@@ -50,4 +56,14 @@ function handleClick(){
 
         default: console.log(buttonInnerHTML);
     }
+}
+
+function buttonAnimation(currentKey){
+    console.log("Oi");
+    var activeButton = document.querySelector("."+ currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    }, 100);
+    
 }

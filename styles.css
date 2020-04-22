@@ -14,6 +14,15 @@ h1 {
 footer {
   color: #DBEDF3;
   font-family: sans-serif;
+  margin: 20px;
+}
+
+a{
+  color: #DBEDF3;
+}
+
+a:hover{
+  color: gray;
 }
 
 .w {
@@ -45,7 +54,7 @@ footer {
 }
 
 .set {
-  margin: 10% auto;
+  margin: 10% auto 3%;
 }
 
 .game-over {
